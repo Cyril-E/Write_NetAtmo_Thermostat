@@ -11,10 +11,8 @@ $consigne=$_GET['consigne'];
 $password='xxxx';
 $username='xxxx';
 
-
 $app_id = 'xxxxx';
 $app_secret = 'xxxxx';
-
 
 $token_url = "https://api.netatmo.net/oauth2/token";
 $postdata = http_build_query(

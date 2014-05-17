@@ -3,8 +3,8 @@
 // Cyril E      http://www.ituilerie.com
 // Ecriture de données au thermostat NetAtmo
 
-// Appel par l'url 
-// http://xxxxxxxxx/thermostat_write.php?mode=off    pour l'arret ou   
+// Appel par l'url
+// http://xxxxxxxxx/thermostat_write.php?mode=off    pour l'arret
 // http://xxxxxxxxx/thermostat_write.php?mode=program           pour passer en mode programme
 // http://xxxxxxxxx/thermostat_write.php?mode=away           pour passer en mode absent
 // http://xxxxxxxxx/thermostat_write.php?mode=hg           pour passer en mode hors gel
@@ -49,7 +49,7 @@ $api_url = "https://api.netatmo.net/api/getuser?access_token=" . $params['access
 $requete = @file_get_contents($api_url);
 
 $url_devices = "https://api.netatmo.net/api/devicelist?access_token=" .  $params['access_token']."&app_type=app_thermostat";
-$resulat_device = @file_get_contents($url_devices);	
+$resulat_device = @file_get_contents($url_devices);
 
 $json_devices = json_decode($resulat_device,true);
 
@@ -61,7 +61,7 @@ $device3 = $json_devices["body"]["devices"][2]["_id"];
 $module3 = $json_devices["body"]["modules"][2]["_id"];
 
 $url="/api/setthermpoint?access_token=" . $params['access_token']."&device_id=".$device1."&module_id=".$module1."&setpoint_mode=".$mode;
-            
+
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, "http://api.netatmo.net".$url);
 curl_setopt($ch, CURLOPT_HEADER, 0);

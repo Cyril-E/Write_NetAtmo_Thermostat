@@ -51,7 +51,7 @@ $module2 = $json_devices["body"]["modules"][1]["_id"];
 $device3 = $json_devices["body"]["devices"][2]["_id"];
 $module3 = $json_devices["body"]["modules"][2]["_id"];
 
-$url="/api/setthermpoint?access_token=" . $params['access_token']."&device_id=".$device1."&module_id=".$module1."&setpoint_mode=off";
+$url="/api/setthermpoint?access_token=" . $params['access_token']."&device_id=".$device1."&module_id=".$module1."&setpoint_mode=off";   // Remplacer off par program
             
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, "http://api.netatmo.net".$url);

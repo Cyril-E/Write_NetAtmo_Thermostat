@@ -3,6 +3,11 @@
 // Cyril E      http://www.ituilerie.com
 // Ecriture de données au thermostat NetAtmo
 
+// Appel par l'url http://xxxxxxxxx/thermostat_write.php?consigne=off    pour l'arret ou   http://xxxxxxxxx/thermostat_write.php?consigne=programm pour passer en mode programme
+
+
+$consigne=$_GET['consigne'];
+
 $password='xxxx';
 $username='xxxx';
 
@@ -51,7 +56,7 @@ $module2 = $json_devices["body"]["modules"][1]["_id"];
 $device3 = $json_devices["body"]["devices"][2]["_id"];
 $module3 = $json_devices["body"]["modules"][2]["_id"];
 
-$url="/api/setthermpoint?access_token=" . $params['access_token']."&device_id=".$device1."&module_id=".$module1."&setpoint_mode=off";   // Remplacer off par program
+$url="/api/setthermpoint?access_token=" . $params['access_token']."&device_id=".$device1."&module_id=".$module1."&setpoint_mode=".$consigne;
             
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, "http://api.netatmo.net".$url);
